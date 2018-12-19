@@ -7,11 +7,12 @@
   "engines": {
     "node": ">=6.13.0"
   },
-  "scripts": {
-  },
-  "dependencies": {
-  },
+  "scripts": {},
+  "dependencies": {},
   "devDependencies": {
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
+    "eslint": "^5.10.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "eslint-plugin-import": "^2.14.0"
   }
 }
