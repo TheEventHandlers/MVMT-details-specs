@@ -7,7 +7,9 @@
   "engines": {
     "node": ">=6.13.0"
   },
-  "scripts": {},
+  "scripts": {
+    "seedDB": "mongoimport --db fec --collection details --file data_generation/databaseRecords.json --jsonArray"
+  },
   "dependencies": {},
   "devDependencies": {
     "eslint": "^5.10.0",
