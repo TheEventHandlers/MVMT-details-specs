@@ -9,12 +9,15 @@
   },
   "scripts": {
     "seedDB": "mongoimport --db fec --collection details --file data_generation/databaseRecords.json --jsonArray"
+    "react-dev": "webpack -d --watch"
   },
   "dependencies": {},
   "devDependencies": {
     "eslint": "^5.10.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
-    "eslint-plugin-import": "^2.14.0"
+    "eslint-plugin-import": "^2.14.0",
+    "webpack": "^4.28.1",
+    "webpack-cli": "^3.1.2"
   }
 }
