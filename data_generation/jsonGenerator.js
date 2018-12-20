@@ -3,7 +3,7 @@
 [
   '{{repeat(100)}}',
   {
-    wid: '{{index() + 100}}',
+    _id: '{{index() + 100}}',
     name: '{{random("Voyager", "Bourbon Rose", "Denali", "Maverick", "Mariner", "Abyss", "Gold Coast", "Calypso", "Thirteen", "Hustle", "Joyride", "Ghost", "Gotham", "Avalon")}}',
     series: '{{random("Voyager", "ARC Automatic", "Blacktop", "Chrono", "Classic", "Forty", "Modern Sport", "Revolver", "Rise" )}}',
     main_photo: '{{random("https://s3-us-west-1.amazonaws.com/fecphotos/100-main.jpg", "https://s3-us-west-1.amazonaws.com/fecphotos/101-main.jpg", "https://s3-us-west-1.amazonaws.com/fecphotos/102-main.jpg", "https://s3-us-west-1.amazonaws.com/fecphotos/103-main.jpg", "https://s3-us-west-1.amazonaws.com/fecphotos/104-main.jpg", "https://s3-us-west-1.amazonaws.com/fecphotos/105-main.jpg", "https://s3-us-west-1.amazonaws.com/fecphotos/106-main.jpg", "https://s3-us-west-1.amazonaws.com/fecphotos/107-main.jpg", "https://s3-us-west-1.amazonaws.com/fecphotos/108-main.jpg", "https://s3-us-west-1.amazonaws.com/fecphotos/109-main.jpg")}}',
