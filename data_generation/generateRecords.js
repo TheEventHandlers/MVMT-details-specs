@@ -1,3 +1,29 @@
+const mongoose = require('mongoose');
+
+mongoose.connect('mongodb://localhost/fec', { useNewUrlParser: true });
+
+const detailSchema = new mongoose.Schema({
+  _id: Number,
+  name: String,
+  series: String,
+  main_photo: String,
+  fit_photo: String,
+  case_size: Number,
+  case_thickness: Number,
+  strap_width: Number,
+  movement: String,
+  glass: String,
+  water_resistance: Number,
+  case_description: String,
+  dial: String,
+  dial_details: String,
+  strap: String,
+  interchangeable_strap: String,
+  subdials: String,
+});
+
+const Detail = mongoose.model('Detail', detailSchema);
+
 const names = ['Voyager', 'Bourbon Rose', 'Denali', 'Maverick', 'Mariner', 'Abyss', 'Gold Coast', 'Calypso', 'Thirteen', 'Hustle', 'Joyride', 'Ghost', 'Gotham', 'Avalon'];
 const series = ['Voyager', 'ARC Automatic', 'Blacktop', 'Chrono', 'Classic', 'Forty', 'Modern Sport', 'Revolver', 'Rise'];
 const mainPhotos = ['https://s3-us-west-1.amazonaws.com/fecphotos/100-main.jpg', 'https://s3-us-west-1.amazonaws.com/fecphotos/101-main.jpg', 'https://s3-us-west-1.amazonaws.com/fecphotos/102-main.jpg', 'https://s3-us-west-1.amazonaws.com/fecphotos/103-main.jpg', 'https://s3-us-west-1.amazonaws.com/fecphotos/104-main.jpg', 'https://s3-us-west-1.amazonaws.com/fecphotos/105-main.jpg', 'https://s3-us-west-1.amazonaws.com/fecphotos/106-main.jpg', 'https://s3-us-west-1.amazonaws.com/fecphotos/107-main.jpg', 'https://s3-us-west-1.amazonaws.com/fecphotos/108-main.jpg', 'https://s3-us-west-1.amazonaws.com/fecphotos/109-main.jpg'];
@@ -26,7 +52,7 @@ const generateAndStoreRecords = () => {
     name: 'Voyager Monochrome',
     series: 'Voyager',
     main_photo: 'https://s3-us-west-1.amazonaws.com/fecphotos/100-main.jpg',
-    fit_photo: 'https://s3-us-west-1.amazonaws.com/fecphotos/10-fit.jpg',
+    fit_photo: 'https://s3-us-west-1.amazonaws.com/fecphotos/100-fit.jpg',
     case_size: 42,
     case_thickness: 11,
     strap_width: 21,
@@ -42,6 +68,9 @@ const generateAndStoreRecords = () => {
   };
 
   // insert record100
+  Detail.create(record100, (err) => {
+    if (err) { throw (err); }
+  });
 
   // generate and insert 99 other records
   for (let i = 101; i <= 199; i += 1) {
@@ -63,6 +92,10 @@ const generateAndStoreRecords = () => {
     record.strap = getRandomArrayElement(straps);
     record.interchangeable_strap = 'Yes';
     record.subdials = getRandomArrayElement(subdials);
-    console.log(record);
+    Detail.create(record, (err) => {
+      if (err) { throw err; }
+    });
   }
 };
+
+generateAndStoreRecords();
