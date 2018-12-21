@@ -1,28 +1,7 @@
 const mongoose = require('mongoose');
+const { Detail } = require('../database/Detail.js');
 
 mongoose.connect('mongodb://localhost/fec', { useNewUrlParser: true });
-
-const detailSchema = new mongoose.Schema({
-  _id: Number,
-  name: String,
-  series: String,
-  main_photo: String,
-  fit_photo: String,
-  case_size: Number,
-  case_thickness: Number,
-  strap_width: Number,
-  movement: String,
-  glass: String,
-  water_resistance: Number,
-  case_description: String,
-  dial: String,
-  dial_details: String,
-  strap: String,
-  interchangeable_strap: String,
-  subdials: String,
-});
-
-const Detail = mongoose.model('Detail', detailSchema);
 
 const names = ['Voyager', 'Bourbon Rose', 'Denali', 'Maverick', 'Mariner', 'Abyss', 'Gold Coast', 'Calypso', 'Thirteen', 'Hustle', 'Joyride', 'Ghost', 'Gotham', 'Avalon'];
 const series = ['Voyager', 'ARC Automatic', 'Blacktop', 'Chrono', 'Classic', 'Forty', 'Modern Sport', 'Revolver', 'Rise'];
