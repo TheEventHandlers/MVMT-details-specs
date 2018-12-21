@@ -10,7 +10,6 @@ app.use(express.static('client/dist'));
 app.get('/api/watches/:wid/details', (req, res) => {
   const id = req.params.wid;
   getSpecsForId(id, (specsForId) => {
-    console.log(specsForId);
     res.send(specsForId);
   });
 });
