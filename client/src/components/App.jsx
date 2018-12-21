@@ -1,5 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
+import parseUrl from 'parse-url';
 
 class App extends React.Component {
   constructor(props) {
@@ -11,15 +12,18 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    const url = window.location.href;
-    const urlSections = url.split('/');
-    const wid = urlSections[urlSections.length - 2];
+    const parsedUrl = parseUrl(window.location.href);
+    const pathname = parsedUrl.pathname;
+    const wid = pathname.substring(pathname.length - 3); 
+    if (wid < 100 || wid > 199) { return; }
+
     const successFn = specs => {
       this.setState({
         id: wid,
         specs: specs
       });
     };
+
     $.ajax({
       url: `/api/watches/${wid}/details`,
       success: successFn
@@ -50,7 +54,7 @@ class App extends React.Component {
         </div>
       );
     } else {
-      return <div></div>
+      return <div>Please enter a watch id between 100 and 199</div>
     }
   }
 };
