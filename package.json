@@ -8,15 +8,16 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "seedDB": "mongoimport --db fec --collection details --file data_generation/databaseRecords.json --jsonArray",
+    "seedDB": "node data_generation/generateRecords.js",
     "react-dev": "webpack -d --watch",
     "server-dev": "nodemon server/index.js"
   },
   "dependencies": {
     "express": "^4.16.4",
+    "mongoose": "^5.4.0",
+    "morgan": "^1.9.1",
     "react": "^16.7.0",
-    "react-dom": "^16.7.0",
-    "morgan": "^1.9.1"
+    "react-dom": "^16.7.0"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
