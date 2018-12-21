@@ -77,4 +77,11 @@ const generateAndStoreRecords = () => {
   }
 };
 
-generateAndStoreRecords();
+const seedDB = () => {
+  Detail.deleteMany({}, (err) => {
+    if (err) { throw err; }
+    generateAndStoreRecords();
+  });
+};
+
+seedDB();
