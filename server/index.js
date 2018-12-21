@@ -5,7 +5,7 @@ const { getSpecsForId } = require('../database/index.js');
 const app = express();
 
 app.use(morgan('tiny'));
-app.use(express.static('client/dist'));
+app.use('/watches/:wid', express.static('client/dist'));
 
 app.get('/api/watches/:wid/details', (req, res) => {
   const id = req.params.wid;
