@@ -1,6 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 import parseUrl from 'parse-url';
+import styles from '../../dist/main.css';
 
 class App extends React.Component {
   constructor(props) {

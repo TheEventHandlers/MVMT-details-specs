@@ -1,9 +1,9 @@
-body {
+.details-body {
   text-align: center;
 }
 
 img {
   margin: auto;
-  height: 100px;
+  height: 200px;
   display: block;
 }

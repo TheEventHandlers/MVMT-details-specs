@@ -27,10 +27,12 @@
     "@babel/preset-env": "^7.2.3",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.4",
+    "css-loader": "^2.0.2",
     "eslint": "^5.10.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "eslint-plugin-import": "^2.14.0",
+    "style-loader": "^0.23.1",
     "webpack": "^4.28.1",
     "webpack-cli": "^3.1.2"
   }
