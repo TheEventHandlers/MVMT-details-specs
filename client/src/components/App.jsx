@@ -1,6 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 import parseUrl from 'parse-url';
+import styles from '../../dist/main.css';
 
 class App extends React.Component {
   constructor(props) {
@@ -37,7 +38,7 @@ class App extends React.Component {
         <div>
           <div>series: {specs.series}</div>
           <div>name: {specs.name}</div>
-          <div>main-photo:<img src={specs.main_photo}></img></div>
+          <div>main-photo:<img className="main" src={specs.main_photo}></img></div>
           <div>fit-photo:<img src={specs.fit_photo}></img></div>
           <div>case size: {specs.case_size}</div>
           <div>case thickness: {specs.case_thickness}</div>
