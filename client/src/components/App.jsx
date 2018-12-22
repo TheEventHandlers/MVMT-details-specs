@@ -4,6 +4,8 @@ import parseUrl from 'parse-url';
 
 import ReadTheSpecs from './ReadTheSpecs.jsx';
 import SeeTheStyle from './SeeTheStyle.jsx';
+import Buttons from './Buttons.jsx';
+
 import styles from '../../dist/main.css';
 
 class App extends React.Component {
@@ -57,13 +59,10 @@ class App extends React.Component {
       <div>
         <h1>it's all in the details</h1>
         {displayComponent}
-        <br/><br/>
-        <button onClick={this.handleClick}>Read The Specs</button>
-        <button onClick={this.handleClick}>See The Style</button>
-        <button onClick={this.handleClick}>See The Fit</button>
+        <img className="details-img" src={this.state.specs.main_photo} />
+        <Buttons clickHandler={this.handleClick} />
       </div>
     );  
-
   }
 };
 

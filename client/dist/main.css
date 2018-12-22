@@ -2,8 +2,22 @@
   text-align: center;
 }
 
-img {
+.details-img {
   margin: auto;
-  height: 200px;
+  height: 100px;
   display: block;
+}
+
+.details-button {
+  /*CAPITALIZE*/
+  padding: 10px 30px;
+}
+
+.details-button:hover {
+  cursor: pointer;
+}
+
+.details-active {
+  background-color: black;
+  color: white;
 }

@@ -3,7 +3,7 @@ import React from 'react';
 const ReadTheSpecs = props => {
   return (
     <div>
-      <h5> READ THE SPECS </h5>
+      <h5>READ THE SPECS</h5>
       <div>case size: {props.specs.case_size}</div>
       <div>case thickness: {props.specs.case_thickness}</div>
       <div>strap width: {props.specs.strap_width}</div>
