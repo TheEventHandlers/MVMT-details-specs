@@ -3,7 +3,7 @@ import React from 'react';
 const SeeTheStyle = props => {
   return (
     <div>
-      <h1>SEE THE STYLE</h1>
+      <h5>SEE THE STYLE</h5>
       <div>case description: {props.specs.case_description}</div>
       <div>dial: {props.specs.dial}</div>
       <div>dial details: {props.specs.dial_details}</div>

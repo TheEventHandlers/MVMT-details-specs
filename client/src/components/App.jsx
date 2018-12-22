@@ -55,6 +55,7 @@ class App extends React.Component {
 
     return (
       <div>
+        <h1>it's all in the details</h1>
         {displayComponent}
         <br/><br/>
         <button onClick={this.handleClick}>Read The Specs</button>
