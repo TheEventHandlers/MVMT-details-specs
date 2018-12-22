@@ -13,6 +13,7 @@ class App extends React.Component {
       specs: null,
       currentDisplay: 'Read The Specs'
     };
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -31,51 +32,37 @@ class App extends React.Component {
     });
   }
 
-  // render() {
-  //   const specs = this.state.specs;
-  //   if (specs !== null) {
-  //     return (
-  //       <div>
-  //         <div>series: {specs.series}</div>
-  //         <div>name: {specs.name}</div>
-  //         <div>main-photo:<img src={specs.main_photo}></img></div>
-  //         <div>fit-photo:<img src={specs.fit_photo}></img></div>
-  //         <div>case size: {specs.case_size}</div>
-  //         <div>case thickness: {specs.case_thickness}</div>
-  //         <div>strap width: {specs.strap_width}</div>
-  //         <div>movement: {specs.movement}</div>
-  //         <div>glass: {specs.glass}</div>
-  //         <div>water resistance: {specs.water_resistance}</div>
-  //         <div>case description: {specs.case_description}</div>
-  //         <div>dial: {specs.dial}</div>
-  //         <div>dial details: {specs.dial_details}</div>
-  //         <div>strap: {specs.strap}</div>
-  //         <div>interchangeable strap: {specs.interchangeable_strap}</div>
-  //         <div>subdials: {specs.subdials}</div>
-  //       </div>
-  //     );
-  //   } else {
-  //     return <div>Please enter a watch id between 100 and 199</div>
-  //   }
-  // }
+  handleClick(e) {
+    this.setState({
+      currentDisplay: e.target.innerText
+    });
+  }
 
   render() {
     if (this.state.specs === null) {
       return <div>Please enter a watch id between 100 and 199</div>;
     }
 
-    let component;
-
+    let displayComponent;
     switch (this.state.currentDisplay) {
       case 'Read The Specs': 
-        component = <ReadTheSpecs specs={this.state.specs} />;
+        displayComponent = <ReadTheSpecs specs={this.state.specs} />;
         break;
       case 'See The Style': 
-        component = <SeeTheStyle specs={this.state.specs} />;
+        displayComponent = <SeeTheStyle specs={this.state.specs} />;
         break;
     }
 
-    return component;
+    return (
+      <div>
+        {displayComponent}
+        <br/><br/>
+        <button onClick={this.handleClick}>Read The Specs</button>
+        <button onClick={this.handleClick}>See The Style</button>
+        <button onClick={this.handleClick}>See The Fit</button>
+      </div>
+    );  
+
   }
 };
 
