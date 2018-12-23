@@ -1,25 +1,59 @@
 import React from 'react';
 
-const Buttons = props => {
-  return (
-    <div>
-      <button
-        onClick={props.clickHandler}
-        className="details-button">
-        Read The Specs
-      </button>
-      <button
-        onClick={props.clickHandler}
-        className="details-button">
-        See The Style
-      </button>
-      <button
-        onClick={props.clickHandler}
-        className="details-button">
-        See The Fit
-      </button>
-    </div>
-  );
+class Buttons extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      activeButton: 1
+    }
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(e) {
+    this.props.clickHandler(e);
+    const clickedButton = e.target.innerText;
+    switch (clickedButton) {
+      case 'Read The Specs':
+        this.setState({
+          activeButton: 1
+        });
+        break;
+      case 'See The Style':
+        this.setState({
+          activeButton: 2
+        });
+        break;
+    }
+  }
+
+  getConditionalClassName(buttonNum) {
+    if (this.state.activeButton === buttonNum) {
+      return "details-button details-active-button"
+    } else {
+      return "details-button";
+    }
+  }
+
+  render() {
+    return (
+      <div>
+        <button
+          onClick={this.handleClick}
+          className={this.getConditionalClassName(1)}>
+          Read The Specs
+        </button>
+        <button
+          onClick={this.handleClick}
+          className={this.getConditionalClassName(2)}>
+          See The Style
+        </button>
+        <button
+          className="details-button">
+          See The Fit
+        </button>
+      </div>
+    );
+  }
 }
 
 export default Buttons;
