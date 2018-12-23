@@ -28,7 +28,7 @@ class Buttons extends React.Component {
 
   getConditionalClassName(buttonNum) {
     if (this.state.activeButton === buttonNum) {
-      return "details-button details-active-button"
+      return "details-active-button"
     } else {
       return "details-button";
     }
