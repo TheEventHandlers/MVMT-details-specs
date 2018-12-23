@@ -39,7 +39,8 @@
   margin: 0 5px;
   background-color: black;
   color: white;
-  transition: background-color 0.5s, border 0.5s;
+  border: 1px solid black;
+  transition: background-color 1s, border 0.5s;
 }
 
 .details-active-button:hover {
