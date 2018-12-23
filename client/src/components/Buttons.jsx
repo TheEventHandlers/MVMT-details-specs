@@ -13,12 +13,12 @@ class Buttons extends React.Component {
     this.props.clickHandler(e);
     const clickedButton = e.target.innerText;
     switch (clickedButton) {
-      case 'Read The Specs':
+      case 'read the specs':
         this.setState({
           activeButton: 1
         });
         break;
-      case 'See The Style':
+      case 'see the style':
         this.setState({
           activeButton: 2
         });
@@ -40,16 +40,16 @@ class Buttons extends React.Component {
         <button
           onClick={this.handleClick}
           className={this.getConditionalClassName(1)}>
-          Read The Specs
+          read the specs
         </button>
         <button
           onClick={this.handleClick}
           className={this.getConditionalClassName(2)}>
-          See The Style
+          see the style
         </button>
         <button
           className="details-button">
-          See The Fit
+          see the fit
         </button>
       </div>
     );

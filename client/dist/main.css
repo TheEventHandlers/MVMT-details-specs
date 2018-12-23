@@ -6,36 +6,40 @@
   background-color: var(--background-color);
 }
 
+.details-h1 {
+  font-variant: small-caps;
+}
+
 .details-img {
-  margin: auto;
-  height: 100px;
+  margin: 30px auto;
+  height: 200px;
   display: block;
 }
 
 .details-button {
-  /*CAPITALIZE*/
+  font-variant: small-caps;
   padding: 15px 40px;
   outline: none;
   margin: 0 5px;
   background-color: var(--background-color);
   border: 1px solid var(--button-border-color);
-  /*TRANSITION ON BORDER AND BACKGROUND COLOR*/
+  transition: background-color 0.5s, border 0.5s;
 }
 
 .details-button:hover {
   cursor: pointer;
   background-color: white;
   border: 1px solid white;
-  /*TRANSITION ON BORDER AND BACKGROUND COLOR*/
 }
 
 .details-active-button {
-  /*CAPITALIZE*/
+  font-variant: small-caps;
   padding: 15px 40px;
   outline: none;
   margin: 0 5px;
   background-color: black;
   color: white;
+  transition: background-color 0.5s, border 0.5s;
 }
 
 .details-active-button:hover {

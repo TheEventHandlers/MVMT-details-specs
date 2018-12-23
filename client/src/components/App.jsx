@@ -13,7 +13,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       specs: null,
-      currentDisplay: 'Read The Specs'
+      currentDisplay: 'read the specs'
     };
     this.handleClick = this.handleClick.bind(this);
   }
@@ -47,17 +47,17 @@ class App extends React.Component {
 
     let displayComponent;
     switch (this.state.currentDisplay) {
-      case 'Read The Specs': 
+      case 'read the specs': 
         displayComponent = <ReadTheSpecs specs={this.state.specs} />;
         break;
-      case 'See The Style': 
+      case 'see the style': 
         displayComponent = <SeeTheStyle specs={this.state.specs} />;
         break;
     }
 
     return (
       <div>
-        <h1>it's all in the details</h1>
+        <h1 className="details-h1">it's all in the details</h1>
         {displayComponent}
         <img className="details-img" src={this.state.specs.main_photo} />
         <Buttons clickHandler={this.handleClick} />
