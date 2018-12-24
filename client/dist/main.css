@@ -46,3 +46,12 @@
 .details-active-button:hover {
   cursor: pointer;
 }
+
+.details-category {
+  font-variant: small-caps;
+  font-weight: bold;
+}
+
+.detials-info {
+  font-weight: lighter;
+}
