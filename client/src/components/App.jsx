@@ -58,9 +58,9 @@ class App extends React.Component {
     return (
       <div>
         <h1 className="details-h1">it's all in the details</h1>
+        <Buttons clickHandler={this.handleClick} />
         {displayComponent}
         <img className="details-img" src={this.state.specs.main_photo} />
-        <Buttons clickHandler={this.handleClick} />
       </div>
     );  
   }

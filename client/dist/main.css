@@ -2,12 +2,14 @@
   --background-color: rgb(245, 246, 247);
   --button-border-color: rgb(237, 237, 237);
 
-  text-align: center;
   background-color: var(--background-color);
+  text-align: center;
+  letter-spacing: 1.2px;
 }
 
 .details-h1 {
   font-variant: small-caps;
+  margin: 10px 0;
 }
 
 .details-img {
@@ -47,11 +49,31 @@
   cursor: pointer;
 }
 
-.details-category {
-  font-variant: small-caps;
-  font-weight: bold;
+.details-table {
+  width: 470px;
+  margin: 10px auto;
 }
 
-.detials-info {
-  font-weight: lighter;
+.details-table-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--button-border-color);
+  padding: 10px 0;
+}
+
+.details-table-row:last-child {
+  border: none;
+}
+
+.details-category {
+  width: 50%;
+  font-variant: small-caps;
+  text-align: left;
+}
+
+.details-info {
+  width: 50%;
+  text-align: right;
+  font-size: 12px;
 }
