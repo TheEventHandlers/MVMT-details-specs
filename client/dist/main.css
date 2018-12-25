@@ -3,24 +3,78 @@
   --button-border-color: rgb(237, 237, 237);
 
   text-align: center;
-  background-color: var(--background-color);
+  letter-spacing: 1.1px;
+  font-family: 'Questrial', sans-serif;
 }
 
 .details-h1 {
   font-variant: small-caps;
+  margin: 25px 0;
+}
+
+.details-main-container {
+  background-color: var(--background-color);
+  margin: auto;
+  position: relative;
+  height: 550px;
+  width: 100%;
+  transform: translate(0, 5%);
 }
 
 .details-img {
-  margin: 30px auto;
-  height: 200px;
+  margin: auto;
+  height: 500px;
   display: block;
+}
+
+#main-photo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-100%, -50%);
+}
+
+.details-right-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(0, -70%);
+}
+
+.details-table {
+  width: 460px;
+  margin: 20px auto;
+}
+
+.details-table-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--button-border-color);
+  padding: 10px 0;
+}
+
+.details-table-row:last-child {
+  border: none;
+}
+
+.details-category {
+  width: 50%;
+  font-variant: small-caps;
+  text-align: left;
+}
+
+.details-info {
+  width: 50%;
+  text-align: right;
+  font-size: 10px;
 }
 
 .details-button {
   font-variant: small-caps;
   padding: 15px 40px;
   outline: none;
-  margin: 0 5px;
+  margin: 0 2px;
   background-color: var(--background-color);
   border: 1px solid var(--button-border-color);
   transition: background-color 0.5s, border 0.5s;
@@ -36,7 +90,7 @@
   font-variant: small-caps;
   padding: 15px 40px;
   outline: none;
-  margin: 0 5px;
+  margin: 0 2px;
   background-color: black;
   color: white;
   border: 1px solid black;
@@ -46,3 +100,4 @@
 .details-active-button:hover {
   cursor: pointer;
 }
+

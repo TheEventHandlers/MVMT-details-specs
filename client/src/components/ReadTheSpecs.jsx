@@ -2,14 +2,31 @@ import React from 'react';
 
 const ReadTheSpecs = props => {
   return (
-    <div>
-      <h5>READ THE SPECS</h5>
-      <div>case size: {props.specs.case_size}</div>
-      <div>case thickness: {props.specs.case_thickness}</div>
-      <div>strap width: {props.specs.strap_width}</div>
-      <div>movement: {props.specs.movement}</div>
-      <div>glass: {props.specs.glass}</div>
-      <div>water resistance: {props.specs.water_resistance}</div>
+    <div className="details-table">
+      <div className="details-table-row">
+        <span className="details-category">case size </span>
+        <span className="details-info">{props.specs.case_size} mm</span>
+      </div>
+      <div className="details-table-row">
+        <span className="details-category">case thickness </span>
+        <span className="details-info">{props.specs.case_thickness} mm</span>
+      </div>
+      <div className="details-table-row">
+        <span className="details-category">strap width </span>
+        <span className="details-info">{props.specs.strap_width} mm</span>
+      </div>
+      <div className="details-table-row">
+        <span className="details-category">movement </span>
+        <span className="details-info">{props.specs.movement}</span>
+      </div>
+      <div className="details-table-row">
+        <span className="details-category">glass </span>
+        <span className="details-info">{props.specs.glass}</span>
+      </div>
+      <div className="details-table-row">
+        <span className="details-category">water resistance </span>
+        <span className="details-info">{props.specs.water_resistance} ATM</span>
+      </div>
     </div>
   );
 };
