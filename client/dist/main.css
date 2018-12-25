@@ -2,56 +2,48 @@
   --background-color: rgb(245, 246, 247);
   --button-border-color: rgb(237, 237, 237);
 
-  background-color: var(--background-color);
   text-align: center;
-  letter-spacing: 1.2px;
+  letter-spacing: 1.1px;
+  font-family: 'Questrial', sans-serif;
 }
 
 .details-h1 {
   font-variant: small-caps;
-  margin: 10px 0;
+  margin: 25px 0;
+}
+
+.details-main-container {
+  background-color: var(--background-color);
+  margin: auto;
+  position: relative;
+  height: 550px;
+  width: 100%;
+  transform: translate(0, 5%);
 }
 
 .details-img {
-  margin: 30px auto;
-  height: 200px;
+  margin: auto;
+  height: 500px;
   display: block;
 }
 
-.details-button {
-  font-variant: small-caps;
-  padding: 15px 40px;
-  outline: none;
-  margin: 0 5px;
-  background-color: var(--background-color);
-  border: 1px solid var(--button-border-color);
-  transition: background-color 0.5s, border 0.5s;
+#main-photo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-100%, -50%);
 }
 
-.details-button:hover {
-  cursor: pointer;
-  background-color: white;
-  border: 1px solid white;
-}
-
-.details-active-button {
-  font-variant: small-caps;
-  padding: 15px 40px;
-  outline: none;
-  margin: 0 5px;
-  background-color: black;
-  color: white;
-  border: 1px solid black;
-  transition: background-color 1s, border 0.5s;
-}
-
-.details-active-button:hover {
-  cursor: pointer;
+.details-right-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(0, -70%);
 }
 
 .details-table {
-  width: 470px;
-  margin: 10px auto;
+  width: 460px;
+  margin: 20px auto;
 }
 
 .details-table-row {
@@ -75,5 +67,37 @@
 .details-info {
   width: 50%;
   text-align: right;
-  font-size: 12px;
+  font-size: 10px;
 }
+
+.details-button {
+  font-variant: small-caps;
+  padding: 15px 40px;
+  outline: none;
+  margin: 0 2px;
+  background-color: var(--background-color);
+  border: 1px solid var(--button-border-color);
+  transition: background-color 0.5s, border 0.5s;
+}
+
+.details-button:hover {
+  cursor: pointer;
+  background-color: white;
+  border: 1px solid white;
+}
+
+.details-active-button {
+  font-variant: small-caps;
+  padding: 15px 40px;
+  outline: none;
+  margin: 0 2px;
+  background-color: black;
+  color: white;
+  border: 1px solid black;
+  transition: background-color 1s, border 0.5s;
+}
+
+.details-active-button:hover {
+  cursor: pointer;
+}
+
