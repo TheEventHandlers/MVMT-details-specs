@@ -149,16 +149,62 @@
   height: 450px;
 }
 
+.details-modal-watch-size {
+  position: absolute;
+  font-variant: small-caps;
+  font-size: 10px;
+  bottom: 90%;
+  left: 15%;
+  border: 1px solid black;
+  padding: 3px 5px;
+}
+
+.details-modal-title {
+  position: absolute;
+  font-variant: small-caps;
+  font-weight: bold;
+  font-size: 30px;
+  bottom: 81%;
+  left: 15%;
+  text-align: left;
+}
+
 .details-modal-description {
   position: absolute;
   font-weight: lighter;
   font-variant: small-caps;
   font-size: 15px;
   width: 30%;
-  bottom: 60%;
+  bottom: 58%;
   left: 15%;
   text-align: left;
   line-height: 1.4;
+}
+
+.details-small-specs {
+  position: absolute;
+  font-variant: small-caps;
+  bottom: 48%;
+  left: 15%;
+  text-align: left;
+}
+
+.details-small-spec-descriptor {
+  margin-right: 6px;
+}
+
+.details-small-spec-value {
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.details-footnote {
+  position: absolute;
+  bottom: 45%;
+  left: 15%;
+  font-weight: lighter;
+  font-size: 8px;
+  color: grey;
 }
 
 #details-close-modal {
