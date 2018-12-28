@@ -60,7 +60,7 @@ class App extends React.Component {
         <img className="details-img" id="main-photo" src={this.state.specs.main_photo}/>
         <div className="details-right-container">
           <h1 className="details-h1">it's all in the details</h1>
-          <Buttons clickHandler={this.handleClick} />
+          <Buttons clickHandler={this.handleClick} specs={this.state.specs} />
           {displayComponent}
         </div>
       </div>

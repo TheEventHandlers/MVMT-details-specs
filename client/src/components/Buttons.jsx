@@ -70,7 +70,8 @@ class Buttons extends React.Component {
         </button>
         <SeeTheFit 
           show={this.state.displayModal}
-          handleClose={this.hideModal} />
+          handleClose={this.hideModal}
+          specs={this.props.specs} />
       </div>
     );
   }
