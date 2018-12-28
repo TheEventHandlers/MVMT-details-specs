@@ -4,7 +4,7 @@ const { Detail } = require('../database/Detail.js');
 mongoose.connect('mongodb://localhost/fec', { useNewUrlParser: true });
 
 const names = ['Voyager', 'Bourbon Rose', 'Denali', 'Maverick', 'Mariner', 'Abyss', 'Gold Coast', 'Calypso', 'Thirteen', 'Hustle', 'Joyride', 'Ghost', 'Gotham', 'Avalon'];
-const series = ['Voyager', 'ARC Automatic', 'Blacktop', 'Chrono', 'Classic', 'Forty', 'Modern Sport', 'Revolver', 'Rise'];
+const series = ['VOYAGER', 'ARC AUTOMATIC', 'BLACKTOP', 'CHRONO', 'CLASSIC', 'FORTY', 'MODERN SPORT', 'REVOLVER', 'RISE'];
 const mainPhotos = ['https://s3-us-west-1.amazonaws.com/fecphotos/100-main.png', 'https://s3-us-west-1.amazonaws.com/fecphotos/101-main.png', 'https://s3-us-west-1.amazonaws.com/fecphotos/102-main.png', 'https://s3-us-west-1.amazonaws.com/fecphotos/103-main.png', 'https://s3-us-west-1.amazonaws.com/fecphotos/104-main.png', 'https://s3-us-west-1.amazonaws.com/fecphotos/105-main.png', 'https://s3-us-west-1.amazonaws.com/fecphotos/106-main.png', 'https://s3-us-west-1.amazonaws.com/fecphotos/107-main.png', 'https://s3-us-west-1.amazonaws.com/fecphotos/108-main.png', 'https://s3-us-west-1.amazonaws.com/fecphotos/109-main.png'];
 const fitPhotos = ['https://s3-us-west-1.amazonaws.com/fecphotos/100-fit.jpg', 'https://s3-us-west-1.amazonaws.com/fecphotos/101-fit.jpg', 'https://s3-us-west-1.amazonaws.com/fecphotos/102-fit.jpg', 'https://s3-us-west-1.amazonaws.com/fecphotos/103-fit.jpg', 'https://s3-us-west-1.amazonaws.com/fecphotos/104-fit.jpg', 'https://s3-us-west-1.amazonaws.com/fecphotos/105-fit.jpg', 'https://s3-us-west-1.amazonaws.com/fecphotos/106-fit.jpg', 'https://s3-us-west-1.amazonaws.com/fecphotos/107-fit.jpg', 'https://s3-us-west-1.amazonaws.com/fecphotos/108-fit.jpg', 'https://s3-us-west-1.amazonaws.com/fecphotos/109-fit.jpg'];
 const caseSizes = [40, 41, 42, 45, 47];
@@ -29,7 +29,7 @@ const generateAndStoreRecords = () => {
   const record100 = {
     _id: 100,
     name: 'Voyager Monochrome',
-    series: 'Voyager',
+    series: 'VOYAGER',
     main_photo: 'https://s3-us-west-1.amazonaws.com/fecphotos/100-main.png',
     fit_photo: 'https://s3-us-west-1.amazonaws.com/fecphotos/100-fit.jpg',
     case_size: 42,

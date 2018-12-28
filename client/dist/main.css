@@ -31,7 +31,7 @@
   display: block;
 }
 
-#main-photo {
+#details-main-photo {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -122,15 +122,14 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 298.5%;
-  height: 120%;
-  transform: translate(-53.3%, -8%);
+  width: 400%;
+  height: 200%;
+  transform: translate(-53%, -23%);
   background: rgba(0, 0, 0, 0.6);
 }
 
 .details-modal-main {
-  position:fixed;
-  background: white;
+  position: relative;
   width: 80%;
   height: auto;
   top: 50%;
@@ -144,4 +143,36 @@
 
 .details-hide {
   display: none;
+}
+
+#details-fit-photo {
+  height: 450px;
+}
+
+.details-modal-description {
+  position: absolute;
+  font-weight: lighter;
+  font-variant: small-caps;
+  font-size: 15px;
+  width: 30%;
+  bottom: 60%;
+  left: 15%;
+  text-align: left;
+  line-height: 1.4;
+}
+
+#details-close-modal {
+  position: absolute;
+  bottom: 93%;
+  right: 195px;
+  font-size: 30px;
+  color: #00000099;
+  background: transparent;
+  outline: none;
+  border: none;
+  padding: 0;
+}
+
+#details-close-modal:hover {
+  cursor: pointer;
 }
