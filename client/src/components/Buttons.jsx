@@ -1,12 +1,16 @@
 import React from 'react';
+import SeeTheFit from './SeeTheFit.jsx';
 
 class Buttons extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeButton: 1
+      activeButton: 1,
+      displayModal: false
     }
     this.handleClick = this.handleClick.bind(this);
+    this.showModal = this.showModal.bind(this);
+    this.hideModal = this.hideModal.bind(this);
   }
 
   handleClick(e) {
@@ -24,6 +28,18 @@ class Buttons extends React.Component {
         });
         break;
     }
+  }
+
+  showModal() {
+    this.setState({
+      displayModal: true
+    });
+  }
+
+  hideModal() {
+    this.setState({
+      displayModal: false
+    });
   }
 
   getConditionalClassName(buttonNum) {
@@ -48,9 +64,13 @@ class Buttons extends React.Component {
           see the style
         </button>
         <button
+          onClick={this.showModal}
           className="details-button">
           see the fit
         </button>
+        <SeeTheFit 
+          show={this.state.displayModal}
+          handleClose={this.hideModal} />
       </div>
     );
   }
