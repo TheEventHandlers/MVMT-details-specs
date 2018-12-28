@@ -13,7 +13,7 @@
     "server-dev": "nodemon server/index.js",
     "start": "webpack -d --watch | nodemon server/index.js",
     "test": "jest",
-    "test:watch": "jest --watch",
+    "test:watch": "jest --watchAll",
     "test:coverage": "jest --coverage --colors"
   },
   "dependencies": {
