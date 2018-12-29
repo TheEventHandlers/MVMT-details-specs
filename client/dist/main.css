@@ -232,8 +232,17 @@
   margin-top: 5px;
 }
 
-.details-slider-fill {
-  width: 100px;
+.details-slider-fill-thickness {
+  width: 150px;
+  height: 8px;
+  background: black;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 12px;
+}
+
+.details-slider-fill-size {
+  width: 90px;
   height: 8px;
   background: black;
   border-radius: 10px;

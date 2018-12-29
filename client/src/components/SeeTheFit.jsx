@@ -40,14 +40,14 @@ const SeeTheFit = ({ show, handleClose, specs }) => {
         <div className="details-slider-container" id="details-thickness-slider-container">
           CASE THICKNESS:
           <div className="details-slider"></div>
-          <div className="details-slider-fill"></div>
+          <div className="details-slider-fill-thickness"></div>
           <span className="details-slider-left">flat</span>
           <span className="details-slider-right">tall</span>
         </div>
         <div className="details-slider-container" id="details-size-slider-container">
           CASE SIZE:
           <div className="details-slider"></div>
-          <div className="details-slider-fill"></div>
+          <div className="details-slider-fill-size"></div>
           <span className="details-slider-left">small</span>
           <span className="details-slider-right">large</span>
         </div>
