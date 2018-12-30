@@ -15,6 +15,34 @@ const SeeTheFit = ({ show, handleClose, specs }) => {
     watchSize = 'medium';
   }
 
+  let thicknessSliderClassName;
+  switch (specs.case_thickness) {
+    case 7:
+      thicknessSliderClassName = 'details-slider-fill details-slider-fill-one-fifth'; break;
+    case 9:
+      thicknessSliderClassName = 'details-slider-fill details-slider-fill-two-fifths'; break;
+    case 11:
+      thicknessSliderClassName = 'details-slider-fill details-slider-fill-three-fifths'; break;
+    case 12:
+      thicknessSliderClassName = 'details-slider-fill details-slider-fill-four-fifths'; break;
+    case 13.5:
+      thicknessSliderClassName = 'details-slider-fill details-slider-fill-full'; break;
+  }
+
+  let sizeSliderClassName;
+  switch (specs.case_size) {
+    case 40:
+      sizeSliderClassName = 'details-slider-fill details-slider-fill-one-fifth';break;
+    case 41:
+      sizeSliderClassName = 'details-slider-fill details-slider-fill-two-fifths'; break;
+    case 42:
+      sizeSliderClassName = 'details-slider-fill details-slider-fill-three-fifths'; break;
+    case 45:
+      sizeSliderClassName = 'details-slider-fill details-slider-fill-four-fifths'; break;
+    case 47:
+      sizeSliderClassName = 'details-slider-fill details-slider-fill-full'; break;
+  }
+
   return (
     <div className={modalClassName}>
       <section className="details-modal-main">
@@ -40,14 +68,14 @@ const SeeTheFit = ({ show, handleClose, specs }) => {
         <div className="details-slider-container" id="details-thickness-slider-container">
           CASE THICKNESS:
           <div className="details-slider"></div>
-          <div className="details-slider-fill-thickness"></div>
+          <div className={thicknessSliderClassName}></div>
           <span className="details-slider-left">flat</span>
           <span className="details-slider-right">tall</span>
         </div>
         <div className="details-slider-container" id="details-size-slider-container">
           CASE SIZE:
           <div className="details-slider"></div>
-          <div className="details-slider-fill-size"></div>
+          <div className={sizeSliderClassName}></div>
           <span className="details-slider-left">small</span>
           <span className="details-slider-right">large</span>
         </div>

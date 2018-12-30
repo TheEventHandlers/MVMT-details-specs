@@ -232,8 +232,7 @@
   margin-top: 5px;
 }
 
-.details-slider-fill-thickness {
-  width: 150px;
+.details-slider-fill {
   height: 8px;
   background: black;
   border-radius: 10px;
@@ -241,13 +240,24 @@
   bottom: 12px;
 }
 
-.details-slider-fill-size {
-  width: 90px;
-  height: 8px;
-  background: black;
-  border-radius: 10px;
-  position: absolute;
-  bottom: 12px;
+.details-slider-fill-one-fifth {
+  width: 40px;
+}
+
+.details-slider-fill-two-fifths {
+  width: 80px;
+}
+
+.details-slider-fill-three-fifths {
+  width: 120px;
+}
+
+.details-slider-fill-four-fifths {
+  width: 160px;
+}
+
+.details-slider-fill-full {
+  width: 200px;
 }
 
 .details-slider-left {
