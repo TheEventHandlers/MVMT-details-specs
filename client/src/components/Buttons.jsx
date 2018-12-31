@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import SeeTheFit from './SeeTheFit.jsx';
 
 class Buttons extends React.Component {
@@ -75,6 +77,11 @@ class Buttons extends React.Component {
       </div>
     );
   }
+}
+
+Buttons.propTypes = {
+  clickHandler: PropTypes.func.isRequired,
+  specs: PropTypes.object.isRequired
 }
 
 export default Buttons;

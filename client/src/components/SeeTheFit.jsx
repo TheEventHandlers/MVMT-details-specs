@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const SeeTheFit = ({ show, handleClose, specs }) => {
   const modalClassName = 
@@ -84,5 +85,11 @@ const SeeTheFit = ({ show, handleClose, specs }) => {
     </div>
   );
 };
+
+SeeTheFit.propTypes = {
+  show: PropTypes.bool.isRequired,
+  handleClose: PropTypes.func.isRequired,
+  specs: PropTypes.object.isRequired
+}
 
 export default SeeTheFit;

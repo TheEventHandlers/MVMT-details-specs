@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const SeeTheStyle = ({ specs }) => {
   return (
@@ -30,5 +31,9 @@ const SeeTheStyle = ({ specs }) => {
     </div>
   );
 };
+
+SeeTheStyle.propTypes = {
+  specs: PropTypes.object.isRequired
+}
 
 export default SeeTheStyle;
