@@ -47,7 +47,7 @@ const SeeTheFit = ({ show, handleClose, specs }) => {
   return (
     <div className={modalClassName}>
       <section className="details-modal-main">
-        <img className="details-img" id="detials-fit-photo" src={specs.fit_photo}/>
+        <img className="details-img" src={specs.fit_photo}/>
         <div className="details-modal-watch-size"> {watchSize} </div>
         <div className="details-modal-title"> {specs.series} series size guide </div>
         <div className="details-modal-description">
