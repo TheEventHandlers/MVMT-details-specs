@@ -1,13 +1,13 @@
-# Project Name
+# Hack Reactor Front End Capstone
 
-> Project description
+> Details/specs component of an item page of MVMT Watches (https://www.mvmtwatches.com/collections/all-mens-watches/products/voyager-monochrome#)
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/TheEventHandlers/MVMT-product-photos
+  - https://github.com/TheEventHandlers/MVMT-summary
+  - https://github.com/TheEventHandlers/MVMT-reviews
+  - https://github.com/TheEventHandlers/MVMT-details-specs (this repo)
 
 ## Table of Contents
 
@@ -17,7 +17,10 @@
 
 ## Usage
 
-> Some usage instructions
+> To start the app, run the following from the root directory:
+- npm run seed-db
+- npm start
+> Then navigate to http://localhost:3003/watches/100/
 
 ## Requirements
 
