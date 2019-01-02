@@ -26,7 +26,7 @@ describe('Buttons component', () => {
   });
 
   it('should render the SeeTheFit modal', () => {
-    expect(wrapper.find('SeeTheFit').length).toBe(1);
+    expect(wrapper.find('SeeTheFit').length).toBeTruthy;
   });
 
   it('should have two non-active buttons and one active button', () => {
