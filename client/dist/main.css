@@ -145,10 +145,6 @@
   display: none;
 }
 
-#details-fit-photo {
-  height: 450px;
-}
-
 .details-modal-watch-size {
   position: absolute;
   font-variant: small-caps;
