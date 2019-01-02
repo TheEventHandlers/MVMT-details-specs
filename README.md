@@ -1,7 +1,7 @@
 # Hack Reactor Front End Capstone
 
 > Details/specs component of an item page of MVMT Watches 
-(https://www.mvmtwatches.com/collections/all-mens-watches/products/voyager-monochrome#)
+> (https://www.mvmtwatches.com/collections/all-mens-watches/products/voyager-monochrome#)
 
 ## Related Projects
 
