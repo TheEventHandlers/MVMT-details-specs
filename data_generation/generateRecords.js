@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
 const { Detail } = require('../database/Detail.js');
 
-mongoose.connect('mongodb://localhost/fec', { useNewUrlParser: true });
+mongoose.connect('mongodb://172.17.0.2/fec', { useNewUrlParser: true });
+// mongoose.connect('mongodb://localhost/fec', {useNewUrlParser: true });
+
 
 const names = ['Voyager', 'Bourbon Rose', 'Denali', 'Maverick', 'Mariner', 'Abyss', 'Gold Coast', 'Calypso', 'Thirteen', 'Hustle', 'Joyride', 'Ghost', 'Gotham', 'Avalon'];
 const series = ['voyager', 'arc automatic', 'blacktop', 'chrono', 'classic', 'forty', 'modern sport', 'revolver', 'rise'];
@@ -73,8 +75,12 @@ const generateAndStoreRecords = () => {
     record.subdials = getRandomArrayElement(subdials);
     Detail.create(record, (err) => {
       if (err) { throw err; }
+      if (i === 199) {
+        process.exit();
+      }
     });
   }
+
 };
 
 const seedDB = () => {
