@@ -11,7 +11,7 @@
     "seed-db": "node data_generation/generateRecords.js",
     "react-dev": "webpack -d --watch",
     "server-dev": "node server/index.js",
-    "start": "webpack -d --watch | nodemon server/index.js",
+    "start": "node data_generation/generateRecords.js && node server/index.js",
     "test": "jest",
     "test:watch": "jest --watchAll",
     "test:coverage": "jest --coverage --colors"
