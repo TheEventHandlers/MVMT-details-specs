@@ -25,7 +25,7 @@ const getRandomArrayElement = (arr) => {
   return arr[randomIndex];
 };
 
-const generateOne = (id, name, callback) => {
+const addWatch = (id, name, callback) => {
   const record = {};
   record._id = id;
   record.name = name;
@@ -57,5 +57,12 @@ const getSpecsForId = (id, cb) => {
   });
 };
 
+const updateWatch = (id, propertyName, propertyValue, callback) => {
+  Detail.update({ _id: id }, {
+    [propertyName]: propertyValue
+  }, callback);
+}
+
 module.exports.getSpecsForId = getSpecsForId;
-module.exports.addWatch = generateOne;
+module.exports.addWatch = addWatch;
+module.exports.updateWatch = updateWatch;

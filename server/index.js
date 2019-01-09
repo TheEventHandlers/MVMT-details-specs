@@ -1,6 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
-const { getSpecsForId, addWatch } = require('../database/index.js');
+const { getSpecsForId, addWatch, updateWatch } = require('../database/index.js');
 
 const app = express();
 
@@ -22,8 +22,9 @@ app.get('/api/watches/:wid/details', (req, res) => {
 });
 
 app.put('/api/watches/:wid/:detailName=:detail', (req, res) => {
-  console.log(req.params);
-  res.end();
+  updateWatch(req.params.wid, req.params.detailName, req.params.detail, () => {
+    res.send(`Successfully updated watch ${req.params.detailName}.`);
+  });
 });
 
 app.delete('/api/watches/:wid/details', (req, res) => {
