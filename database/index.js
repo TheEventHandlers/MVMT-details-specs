@@ -61,8 +61,13 @@ const updateWatch = (id, propertyName, propertyValue, callback) => {
   Detail.update({ _id: id }, {
     [propertyName]: propertyValue
   }, callback);
-}
+};
+
+const deleteWatch = (id, callback) => {
+  Detail.deleteOne({ _id: id }, callback);
+};
 
 module.exports.getSpecsForId = getSpecsForId;
 module.exports.addWatch = addWatch;
 module.exports.updateWatch = updateWatch;
+module.exports.deleteWatch = deleteWatch;

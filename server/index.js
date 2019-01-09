@@ -1,6 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
-const { getSpecsForId, addWatch, updateWatch } = require('../database/index.js');
+const { getSpecsForId, addWatch, updateWatch, deleteWatch } = require('../database/index.js');
 
 const app = express();
 
@@ -27,7 +27,10 @@ app.put('/api/watches/:wid/:detailName=:detail', (req, res) => {
   });
 });
 
-app.delete('/api/watches/:wid/details', (req, res) => {
+app.delete('/api/watches/:wid/', (req, res) => {
+  deleteWatch(req.params.wid, () => {
+    res.send(`Sucessfully deleted watch #${req.params.wid}.`);
+  });
 });
 
 app.listen(3003, () => {
