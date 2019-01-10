@@ -1,8 +1,25 @@
-const mongoose = require('mongoose');
-const { Detail } = require('../database/Detail.js');
-
-mongoose.connect('mongodb://localhost/SDC', { useNewUrlParser: true });
-// mongoose.connect('mongodb://localhost/fec', {useNewUrlParser: true });
+const fs = require('graceful-fs');
+const path = require('path');
+const json2csv = require('json2csv').parse;
+const fields = [
+  'id',
+  'name',
+  'series',
+  'main_photo',
+  'fit_photo',
+  'case_size',
+  'case_thickness',
+  'strap_width',
+  'movement',
+  'glass',
+  'water_resistance',
+  'case_description',
+  'dial',
+  'dial_details',
+  'strap',
+  'interchangeable_strap',
+  'subdials'];
+const opts = { fields };
 
 const names = ['Voyager', 'Bourbon Rose', 'Denali', 'Maverick', 'Mariner', 'Abyss', 'Gold Coast', 'Calypso', 'Thirteen', 'Hustle', 'Joyride', 'Ghost', 'Gotham', 'Avalon'];
 const series = ['voyager', 'arc automatic', 'blacktop', 'chrono', 'classic', 'forty', 'modern sport', 'revolver', 'rise'];
@@ -25,67 +42,75 @@ const getRandomArrayElement = (arr) => {
   return arr[randomIndex];
 };
 
-const generateAndStoreRecords = () => {
-  // hard code watch with id 100 to match all other group members' id 100
-  const record100 = {
-    _id: 100,
-    name: 'Voyager Monochrome',
-    series: 'voyager',
-    main_photo: 'https://s3-us-west-1.amazonaws.com/fecphotos/100-main.png',
-    fit_photo: 'https://s3-us-west-1.amazonaws.com/fecphotos/100-fit.jpg',
-    case_size: 42,
-    case_thickness: 11,
-    strap_width: 21,
-    movement: 'Battery powered 5 hand Miyota dual time movement',
-    glass: 'Hardened mineral crystal',
-    water_resistance: 10,
-    case_description: 'Brushed smoke stainless steel',
-    dial: 'Grey',
-    dial_details: 'Gunmetal hands & markers / Gunmetal second hand',
-    strap: 'Matte smoke 100% genuine leather',
-    interchangeable_strap: 'Yes',
-    subdials: '2 subdials - dual time zone',
-  };
+let firstFile = {
+  id: 100,
+  name: 'Voyager Monochrome',
+  series: 'voyager',
+  main_photo: 'https://s3-us-west-1.amazonaws.com/fecphotos/100-main.png',
+  fit_photo: 'https://s3-us-west-1.amazonaws.com/fecphotos/100-fit.jpg',
+  case_size: 42,
+  case_thickness: 11,
+  strap_width: 21,
+  movement: 'Battery powered 5 hand Miyota dual time movement',
+  glass: 'Hardened mineral crystal',
+  water_resistance: 10,
+  case_description: 'Brushed smoke stainless steel',
+  dial: 'Grey',
+  dial_details: 'Gunmetal hands & markers / Gunmetal second hand',
+  strap: 'Matte smoke 100% genuine leather',
+  interchangeable_strap: 'Yes',
+  subdials: '2 subdials - dual time zone',
+};
 
-  // insert record100
-  Detail.create(record100, (err) => {
-    if (err) { throw (err); }
-  });
+fs.appendFile('/Users/rudydimacali/Documents/GitHub/RESTwatch-SDC/MVMT-details-specs/data_generation/seedData1.csv', json2csv(firstFile, opts));
 
-  // generate and insert 99 other records
-  for (let i = 101; i <= 199; i += 1) {
-    const record = {};
-    record._id = i;
-    record.name = getRandomArrayElement(names);
-    record.series = getRandomArrayElement(series);
-    record.main_photo = getRandomArrayElement(mainPhotos);
-    record.fit_photo = getRandomArrayElement(fitPhotos);
-    record.case_size = getRandomArrayElement(caseSizes);
-    record.case_thickness = getRandomArrayElement(caseThicknesses);
-    record.strap_width = getRandomArrayElement(strapWidths);
-    record.movement = getRandomArrayElement(movements);
-    record.glass = getRandomArrayElement(glasses);
-    record.water_resistance = getRandomArrayElement(waterResistances);
-    record.case_description = getRandomArrayElement(caseDescriptions);
-    record.dial = getRandomArrayElement(dials);
-    record.dial_details = getRandomArrayElement(dialDetails);
-    record.strap = getRandomArrayElement(straps);
-    record.interchangeable_strap = 'Yes';
-    record.subdials = getRandomArrayElement(subdials);
-    Detail.create(record, (err) => {
-      if (err) { throw err; }
-      if (i === 199) {
-        process.exit();
-      }
-    });
+const generateCSVRecord = (id) => {
+  const record = {};
+  record.id = id;
+  record.name = getRandomArrayElement(names);
+  record.series = getRandomArrayElement(series);
+  record.main_photo = getRandomArrayElement(mainPhotos);
+  record.fit_photo = getRandomArrayElement(fitPhotos);
+  record.case_size = getRandomArrayElement(caseSizes);
+  record.case_thickness = getRandomArrayElement(caseThicknesses);
+  record.strap_width = getRandomArrayElement(strapWidths);
+  record.movement = getRandomArrayElement(movements);
+  record.glass = getRandomArrayElement(glasses);
+  record.water_resistance = getRandomArrayElement(waterResistances);
+  record.case_description = getRandomArrayElement(caseDescriptions);
+  record.dial = getRandomArrayElement(dials);
+  record.dial_details = getRandomArrayElement(dialDetails);
+  record.strap = getRandomArrayElement(straps);
+  record.interchangeable_strap = 'Yes';
+  record.subdials = getRandomArrayElement(subdials);
+  return json2csv(record, opts);
+}
+
+let j = 2;
+let i = 101;
+
+const writeRecords = (numRecords, recordsPerFile) => {
+  let fileWriteStream = fs.createWriteStream(path.join(__dirname, `/seedData${j}.csv`));
+  const write = () => {
+    if ((i - 101) % recordsPerFile === 0) {
+      fileWriteStream = fs.createWriteStream(path.join(__dirname, `/seedData${j}.csv`));
+      j++;
+      console.log(`${(i / (numRecords + 100)) * 100}% complete.`);
+    }
+    if (i >= numRecords + 100) {
+      console.log('Complete!');
+      return;
+    }
+    const okayToWrite = fileWriteStream.write(generateCSVRecord(i));
+    if (okayToWrite) {
+      i++;
+      write();
+    } else {
+      fileWriteStream.once('drain', () => {
+        write();
+      })
+    }
   }
+  write();
 };
-
-const seedDB = () => {
-  Detail.deleteMany({}, (err) => {
-    if (err) { throw err; }
-    generateAndStoreRecords();
-  });
-};
-
-seedDB();
+writeRecords(10000000, 1000000);

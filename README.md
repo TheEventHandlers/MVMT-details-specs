@@ -20,7 +20,6 @@
 
 > To start the app, run the following from the root directory:
 - npm install
-- npm run seed
 - npm start
 > Then navigate to http://localhost:3003/watches/100/
 
