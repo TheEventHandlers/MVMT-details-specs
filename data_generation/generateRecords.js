@@ -27,7 +27,7 @@ const series = ['voyager', 'arc automatic', 'blacktop', 'chrono', 'classic', 'fo
 const mainPhotos = ['https://s3-us-west-1.amazonaws.com/fecphotos/100-main.png', 'https://s3-us-west-1.amazonaws.com/fecphotos/101-main.png', 'https://s3-us-west-1.amazonaws.com/fecphotos/102-main.png', 'https://s3-us-west-1.amazonaws.com/fecphotos/103-main.png', 'https://s3-us-west-1.amazonaws.com/fecphotos/104-main.png', 'https://s3-us-west-1.amazonaws.com/fecphotos/105-main.png', 'https://s3-us-west-1.amazonaws.com/fecphotos/106-main.png', 'https://s3-us-west-1.amazonaws.com/fecphotos/107-main.png', 'https://s3-us-west-1.amazonaws.com/fecphotos/108-main.png', 'https://s3-us-west-1.amazonaws.com/fecphotos/109-main.png'];
 const fitPhotos = ['https://s3-us-west-1.amazonaws.com/fecphotos/100-fit.jpg', 'https://s3-us-west-1.amazonaws.com/fecphotos/101-fit.jpg', 'https://s3-us-west-1.amazonaws.com/fecphotos/102-fit.jpg', 'https://s3-us-west-1.amazonaws.com/fecphotos/103-fit.jpg', 'https://s3-us-west-1.amazonaws.com/fecphotos/104-fit.jpg', 'https://s3-us-west-1.amazonaws.com/fecphotos/105-fit.jpg', 'https://s3-us-west-1.amazonaws.com/fecphotos/106-fit.jpg', 'https://s3-us-west-1.amazonaws.com/fecphotos/107-fit.jpg', 'https://s3-us-west-1.amazonaws.com/fecphotos/108-fit.jpg', 'https://s3-us-west-1.amazonaws.com/fecphotos/109-fit.jpg'];
 const caseSizes = [40, 41, 42, 45, 47];
-const caseThicknesses = [7, 9, 11, 12, 13.5];
+const caseThicknesses = [7, 9, 11, 12, 13];
 const strapWidths = [20, 21, 22, 23, 24];
 const movements = ['Battery powered 5 hand Miyota dual time movement', 'Battery powered 3 hand Miyota quartz', 'Miyota 821A automatic', 'Battery powered 5 hand Miyota with center chronograph hand', 'Battery powered 6 hand chronograph with date', 'Battery powered 3 hand Miyota quartz with date'];
 const glasses = ['Hardened mineral crystal', 'Hardened K1 mineral crystal'];
@@ -36,7 +36,7 @@ const caseDescriptions = ['Brushed smoke stainless steel', 'Matte smoke stainles
 const dials = ['White', 'Grey', 'Black', 'Dark grey'];
 const dialDetails = ['Gunmetal hands & markers / Gunmetal second hand', 'Grey hands / Gunmetal markers / Grey second hand', 'Gunmetal hands & markers', 'Gunmetal hands & markers / White second hand', 'Rose gold hands & markers'];
 const straps = ['Matte smoke 100% genuine leather', 'Matte smoke stainless steel', 'Caramel leather', 'Black 100% genuine leather'];
-const subdials = ['N/A', '2 subdials - dual time zone', '60 minute timer, running seconds', '24 hour clock, 30 minute timer, and 60 second timer'];
+const subdials = ['N/A', '2 subdials - dual time zone', '60 minute timer\\\, running seconds', '24 hour clock\\\, 30 minute timer\\\, and 60 second timer'];
 
 const getRandomArrayElement = (arr) => {
   const randomIndex = Math.floor(Math.random() * arr.length);
@@ -85,7 +85,7 @@ const generateCSVRecord = (id, recordsPerFile) => {
   record.interchangeable_strap = 'Yes';
   record.subdials = getRandomArrayElement(subdials);
   if ((i - 101) % recordsPerFile === 0) {
-    return json2csv(record, optsHeader);
+    return (json2csv(record, optsHeader) + '\n');
   } else {
     return (json2csv(record, opts) + '\n');
   }
