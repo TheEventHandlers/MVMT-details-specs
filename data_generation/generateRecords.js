@@ -19,7 +19,8 @@ const fields = [
   'strap',
   'interchangeable_strap',
   'subdials'];
-const opts = { fields };
+const optsHeader = { fields, quote: "'" };
+const opts = { header: false, quote: "'" };
 
 const names = ['Voyager', 'Bourbon Rose', 'Denali', 'Maverick', 'Mariner', 'Abyss', 'Gold Coast', 'Calypso', 'Thirteen', 'Hustle', 'Joyride', 'Ghost', 'Gotham', 'Avalon'];
 const series = ['voyager', 'arc automatic', 'blacktop', 'chrono', 'classic', 'forty', 'modern sport', 'revolver', 'rise'];
@@ -61,10 +62,10 @@ let firstFile = {
   interchangeable_strap: 'Yes',
   subdials: '2 subdials - dual time zone',
 };
+let startTime = Date.now();
+fs.appendFile(path.join(__dirname, `/seedData1.csv`), json2csv(firstFile, optsHeader));
 
-fs.appendFile('/Users/rudydimacali/Documents/GitHub/RESTwatch-SDC/MVMT-details-specs/data_generation/seedData1.csv', json2csv(firstFile, opts));
-
-const generateCSVRecord = (id) => {
+const generateCSVRecord = (id, recordsPerFile) => {
   const record = {};
   record.id = id;
   record.name = getRandomArrayElement(names);
@@ -83,7 +84,11 @@ const generateCSVRecord = (id) => {
   record.strap = getRandomArrayElement(straps);
   record.interchangeable_strap = 'Yes';
   record.subdials = getRandomArrayElement(subdials);
-  return json2csv(record, opts);
+  if ((i - 101) % recordsPerFile === 0) {
+    return json2csv(record, optsHeader);
+  } else {
+    return (json2csv(record, opts) + '\n');
+  }
 }
 
 let j = 2;
@@ -96,12 +101,14 @@ const writeRecords = (numRecords, recordsPerFile) => {
       fileWriteStream = fs.createWriteStream(path.join(__dirname, `/seedData${j}.csv`));
       j++;
       console.log(`${(i / (numRecords + 100)) * 100}% complete.`);
+      console.log(`Time elapsed: ${(Date.now() - startTime) / 1000} seconds.`)
     }
     if (i >= numRecords + 100) {
       console.log('Complete!');
+      console.log(`Time elapsed: ${(Date.now() - startTime) / 1000} seconds.`)
       return;
     }
-    const okayToWrite = fileWriteStream.write(generateCSVRecord(i));
+    const okayToWrite = fileWriteStream.write(generateCSVRecord(i, recordsPerFile));
     if (okayToWrite) {
       i++;
       write();
