@@ -4,6 +4,7 @@ const json2csv = require('json2csv').parse;
 const fields = [
   'id',
   'name',
+  'uniqueName',
   'series',
   'main_photo',
   'fit_photo',
@@ -46,6 +47,7 @@ const getRandomArrayElement = (arr) => {
 let firstFile = {
   id: 100,
   name: 'Voyager Monochrome',
+  uniqueName: 'watch100',
   series: 'voyager',
   main_photo: 'https://s3-us-west-1.amazonaws.com/fecphotos/100-main.png',
   fit_photo: 'https://s3-us-west-1.amazonaws.com/fecphotos/100-fit.jpg',
@@ -69,6 +71,7 @@ const generateCSVRecord = (id, recordsPerFile) => {
   const record = {};
   record.id = id;
   record.name = getRandomArrayElement(names);
+  record.uniqueName = `watch${id}`;
   record.series = getRandomArrayElement(series);
   record.main_photo = getRandomArrayElement(mainPhotos);
   record.fit_photo = getRandomArrayElement(fitPhotos);
