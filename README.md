@@ -1,6 +1,7 @@
 # Watch.me
 
-> Details/specs component of an item page of MVMT Watches \ 
+> Details/specs component of an item page of MVMT Watches \
+
 > (https://www.mvmtwatches.com/collections/all-mens-watches/products/voyager-monochrome#) \
 > This is the final state of the repo before deployment to AWS
 
