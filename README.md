@@ -23,7 +23,7 @@
 - npm install
 - npm run seed-db
 - npm start
-> Then navigate to http://localhost:3003/watches/100/
+> Then navigate to http://localhost:3003/watches/100/ (or any watch from 100 through 199)
 
 ## Requirements
 
